@@ -28,8 +28,8 @@
     color: $color-font;
     &:hover {
       cursor: pointer;
-      color: #fa9417;
-      text-shadow: 0px 0px 20px #faac52;
+      color: $color-accent;
+      text-shadow: 0px 0px 20px $color-accent-light;
       transition: all 0.2s ease-in;
     }
   }

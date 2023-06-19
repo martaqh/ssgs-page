@@ -19,12 +19,15 @@ import TopNav from "./TopNav.vue";
 
 <style scoped lang="scss">
 .header {
-  margin: 0 0 30px 0;
+  margin: 0;
+  padding: 24px 0;
   display: flex;
   justify-content: space-between;
 }
 
 .logo {
+  padding-top: 24px;
+  margin-left: -18px;
   img {
     max-width: 200px;
   }

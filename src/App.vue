@@ -13,13 +13,13 @@ import HomePage from "./pages/HomePage.vue";
 
 <style scoped lang="scss">
 .app {
-  background-image: linear-gradient(
-    90deg,
-    rgba(38, 36, 33, 1) 27%,
-    rgba(43, 42, 39, 1) 56%,
-    rgba(38, 36, 33, 1) 100%
-  );
-  color: #dbd7d0;
+  // background-image: linear-gradient(
+  //   90deg,
+  //   rgba(38, 36, 33, 1) 27%,
+  //   rgba(43, 42, 39, 1) 56%,
+  //   rgba(38, 36, 33, 1) 100%
+  // );
+  color: $color-font;
   font-family: $font-text;
   max-width: 1200px;
   padding: 0 24px;

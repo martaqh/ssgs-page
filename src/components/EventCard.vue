@@ -28,8 +28,7 @@ const props = defineProps<{
           class="event-card__description"
           :class="{ upcoming: props.upcoming }"
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </p>
         <p
           v-if="props.upcoming"
@@ -41,7 +40,7 @@ const props = defineProps<{
         </p>
         <div v-if="!props.upcoming" class="event-card__footer">
           <time>18 maja 2023 r.</time>
-          <p>read more...</p>
+          <p>></p>
         </div>
       </div>
     </div>
@@ -52,14 +51,15 @@ const props = defineProps<{
 .event-card {
   display: flex;
   flex-direction: column;
-  width: 304px;
+  width: 320px;
+  height: 320px;
   padding: 32px;
   margin-bottom: 32px;
   overflow: hidden;
-  background-color: #393733;
-  //background-image: linear-gradient(90deg, rgba(38, 36, 33, 1) 27%, rgba(43, 42, 39, 1) 56%, rgba(38, 36, 33, 1) 100%);
-
-  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  background-color: $color-card;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  //box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
   border-radius: 4px;
 
@@ -74,7 +74,6 @@ const props = defineProps<{
 
   &__image {
     width: 100%;
-    max-height: 180px;
     overflow: hidden;
     border-radius: 4px;
 
