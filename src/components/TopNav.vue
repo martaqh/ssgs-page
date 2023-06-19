@@ -2,9 +2,15 @@
 <template>
   <ul class="top-nav">
     <router-link to="/o-nas" class="top-nav__item">O nas</router-link>
-    <router-link to="/robert-pozarski" class="top-nav__item">Robert Pożarski</router-link>
-    <router-link to="/oferta-koncertowa" class="top-nav__item">Oferta koncertowa</router-link>
-    <router-link to="/dyskografia" class="top-nav__item">Dyskografia</router-link>
+    <router-link to="/robert-pozarski" class="top-nav__item"
+      >Robert Pożarski</router-link
+    >
+    <router-link to="/oferta-koncertowa" class="top-nav__item"
+      >Oferta koncertowa</router-link
+    >
+    <router-link to="/dyskografia" class="top-nav__item"
+      >Dyskografia</router-link
+    >
     <router-link to="/kontakt" class="top-nav__item">Kontakt</router-link>
   </ul>
 </template>
@@ -16,7 +22,7 @@
   align-items: center;
 
   &__item {
-    padding: 20px;
+    padding: 24px;
     text-transform: uppercase;
     font-size: 1.1rem;
     color: $color-font;

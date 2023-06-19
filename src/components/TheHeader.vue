@@ -1,10 +1,18 @@
 <script setup lang="ts">
-import TopNav from './TopNav.vue';
+import TopNav from "./TopNav.vue";
 </script>
 
 <template>
   <div class="header">
-    <router-link to="HomePage" class="logo"> </router-link>
+    <router-link to="/" class="logo">
+      <img
+        src="src/assets/SSGS_logo.png"
+        style="
+          filter: invert(66%) sepia(70%) saturate(366%) hue-rotate(342deg)
+            brightness(102%) contrast(103%);
+        "
+      />
+    </router-link>
     <TopNav></TopNav>
   </div>
 </template>
@@ -12,14 +20,13 @@ import TopNav from './TopNav.vue';
 <style scoped lang="scss">
 .header {
   margin: 0 0 30px 0;
-  padding-top: 30px;
   display: flex;
   justify-content: space-between;
 }
 
 .logo {
   img {
-    max-width: 100px;
+    max-width: 200px;
   }
 }
 </style>

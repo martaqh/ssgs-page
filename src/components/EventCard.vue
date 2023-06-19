@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed } from "vue";
 
 const props = defineProps<{
   upcoming?: boolean;
@@ -21,15 +21,28 @@ const props = defineProps<{
         <span class="event-card__place">Kościół św. Macieja, Wrocław</span>
       </div>
       <div>
-        <h2 class="event-card__title" :class="{ upcoming: props.upcoming }">Wigilia św. Jana</h2>
-        <p class="event-card__description" :class="{ upcoming: props.upcoming }">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua.
+        <h2 class="event-card__title" :class="{ upcoming: props.upcoming }">
+          Wigilia św. Jana
+        </h2>
+        <p
+          class="event-card__description"
+          :class="{ upcoming: props.upcoming }"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
-        <p v-if="props.upcoming" class="event-card__description" :class="{ upcoming: props.upcoming }">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua.
+        <p
+          v-if="props.upcoming"
+          class="event-card__description"
+          :class="{ upcoming: props.upcoming }"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
+        <div v-if="!props.upcoming" class="event-card__footer">
+          <time>18 maja 2023 r.</time>
+          <p>read more...</p>
+        </div>
       </div>
     </div>
   </div>
@@ -41,7 +54,7 @@ const props = defineProps<{
   flex-direction: column;
   width: 304px;
   padding: 32px;
-  margin-top: 32px;
+  margin-bottom: 32px;
   overflow: hidden;
   background-color: #393733;
   //background-image: linear-gradient(90deg, rgba(38, 36, 33, 1) 27%, rgba(43, 42, 39, 1) 56%, rgba(38, 36, 33, 1) 100%);
@@ -82,7 +95,7 @@ const props = defineProps<{
   }
   &__title {
     font-family: $font-title;
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin: 32px 0 16px;
 
     &.upcoming {
@@ -119,6 +132,13 @@ const props = defineProps<{
     text-transform: uppercase;
     display: flex;
     justify-content: flex-end;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+    color: $color-accent-light;
   }
 
   &.upcoming {
