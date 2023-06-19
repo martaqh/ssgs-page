@@ -51,8 +51,9 @@ const props = defineProps<{
 .event-card {
   display: flex;
   flex-direction: column;
-  width: 320px;
-  height: 320px;
+
+  align-items: stretch;
+  height: 304px;
   padding: 32px;
   margin-bottom: 32px;
   overflow: hidden;
@@ -60,7 +61,6 @@ const props = defineProps<{
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
   //box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
   border-radius: 4px;
 
   &__content {
@@ -68,12 +68,13 @@ const props = defineProps<{
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 0 0 0 32px;
+      padding: 0 0 0 24px;
     }
   }
 
   &__image {
     width: 100%;
+    height: 100%;
     overflow: hidden;
     border-radius: 4px;
 

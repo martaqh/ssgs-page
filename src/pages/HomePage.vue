@@ -1,15 +1,17 @@
 <script setup lang="ts">
-import EventCard from '@/components/EventCard.vue';
-import SectionTitle from '@/components/SectionTitle.vue';
+import EventCard from "@/components/EventCard.vue";
+import SectionTitle from "@/components/SectionTitle.vue";
 </script>
 
 <template>
   <main class="home-page">
     <section class="home-page__section">
       <SectionTitle>Nadchodzące wydarzenia</SectionTitle>
-      <div class="cards-section">
-        <EventCard upcoming image-url="https://upload.wikimedia.org/wikipedia/commons/b/b8/Graduale_Aboense_3.jpg" />
-      </div>
+
+      <EventCard
+        upcoming
+        image-url="https://upload.wikimedia.org/wikipedia/commons/b/b8/Graduale_Aboense_3.jpg"
+      />
     </section>
     <section class="home-page__section">
       <SectionTitle>Dotychczasowe realizacje</SectionTitle>
@@ -32,8 +34,19 @@ import SectionTitle from '@/components/SectionTitle.vue';
   }
 }
 .cards-section {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 24px;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 </style>
