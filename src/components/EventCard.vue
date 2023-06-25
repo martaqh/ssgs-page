@@ -1,50 +1,52 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import type { Event } from "@/pages/EventPage.vue";
 
 const props = defineProps<{
-  upcoming?: boolean;
-  imageUrl?: string;
+  event: Event;
 }>();
 </script>
 
 <template>
-  <div class="event-card" :class="{ upcoming: props.upcoming }">
-    <div class="event-card__image" :class="{ upcoming: props.upcoming }">
-      <img :src="props.imageUrl" />
-    </div>
-    <div class="event-card__content" :class="{ upcoming: props.upcoming }">
-      <div v-if="props.upcoming" class="event-card__details">
-        <div class="event-card__time">
-          <span>23 czerwca 2023 r. (sobota)</span>
-          <span>g. 19:00</span>
-        </div>
-        <span class="event-card__place">Kościół św. Macieja, Wrocław</span>
+  <router-link :to="{ name: 'EventPage', params: { eventId: event.id } }">
+    <div class="event-card" :class="{ upcoming: event.upcoming }">
+      <div class="event-card__image" :class="{ upcoming: event.upcoming }">
+        <img :src="event.imageUrl" />
       </div>
-      <div>
-        <h2 class="event-card__title" :class="{ upcoming: props.upcoming }">
-          Wigilia św. Jana
-        </h2>
-        <p
-          class="event-card__description"
-          :class="{ upcoming: props.upcoming }"
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </p>
-        <p
-          v-if="props.upcoming"
-          class="event-card__description"
-          :class="{ upcoming: props.upcoming }"
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-        <div v-if="!props.upcoming" class="event-card__footer">
-          <time>18 maja 2023 r.</time>
-          <p>></p>
+      <div class="event-card__content" :class="{ upcoming: event.upcoming }">
+        <div v-if="event.upcoming" class="event-card__details">
+          <div class="event-card__time">
+            <span>23 czerwca 2023 r. (sobota)</span>
+            <span>g. 19:00</span>
+          </div>
+          <span class="event-card__place">Kościół św. Macieja, Wrocław</span>
+        </div>
+        <div>
+          <h2 class="event-card__title" :class="{ upcoming: event.upcoming }">
+            Wigilia św. Jana
+          </h2>
+          <p
+            class="event-card__description"
+            :class="{ upcoming: event.upcoming }"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </p>
+          <p
+            v-if="event.upcoming"
+            class="event-card__description"
+            :class="{ upcoming: event.upcoming }"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <div v-if="!event.upcoming" class="event-card__footer">
+            <time>18 maja 2023 r.</time>
+            <p>></p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <style scoped lang="scss">

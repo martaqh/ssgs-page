@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import SectionTitle from "@/components/SectionTitle.vue";
 
-type Event = {
-  id: string;
-  title: string;
-  description: string;
-  imageUrl: string;
-  videoUrl: string;
+export type Event = {
+  id?: number;
+  title?: string;
+  description?: string;
+  imageUrl?: string;
+  videoUrl?: string;
+  upcoming?: boolean;
 };
 
 const props = defineProps<{
@@ -15,5 +16,5 @@ const props = defineProps<{
 </script>
 
 <template>
-  <SectionTitle></SectionTitle>
+  <SectionTitle>Jestem eventem</SectionTitle>
 </template>
