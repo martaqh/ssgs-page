@@ -12,7 +12,7 @@ const eventUpcoming = {
 const eventPast = {
   id: 2,
   upcoming: false,
-  imageUrl: "src/assets/pasja_stas.jpg",
+  imageUrl: "/src/assets/pasja_stas.jpg",
 };
 </script>
 
