@@ -6,7 +6,7 @@ import TopNav from "./TopNav.vue";
   <div class="header">
     <router-link to="/" class="logo">
       <img
-        src="src/assets/SSGS_logo.png"
+        src="src/assets/logo.png"
         style="
           filter: invert(66%) sepia(70%) saturate(366%) hue-rotate(342deg)
             brightness(102%) contrast(103%);
