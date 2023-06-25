@@ -9,11 +9,23 @@ const eventUpcoming = {
     "https://upload.wikimedia.org/wikipedia/commons/b/b8/Graduale_Aboense_3.jpg",
 };
 
-const eventPast = {
-  id: 2,
-  upcoming: false,
-  imageUrl: "/src/assets/pasja_stas.jpg",
-};
+const eventsPast = [
+  {
+    id: 2,
+    upcoming: false,
+    imageUrl: "/src/assets/pasja_stas.jpg",
+  },
+  {
+    id: 2,
+    upcoming: false,
+    imageUrl: "/src/assets/Adwentowy.jpg",
+  },
+  {
+    id: 3,
+    upcoming: false,
+    imageUrl: "/src/assets/Ofiarowanie.jpg",
+  },
+];
 </script>
 
 <template>
@@ -25,7 +37,8 @@ const eventPast = {
     <section class="home-page__section">
       <SectionTitle>Dotychczasowe realizacje</SectionTitle>
       <div class="cards-section">
-        <EventCard v-for="n of 6" :event="eventPast" />
+        <EventCard v-for="event of eventsPast" :event="event" />
+        <EventCard v-for="event of eventsPast" :event="event" />
       </div>
     </section>
   </main>

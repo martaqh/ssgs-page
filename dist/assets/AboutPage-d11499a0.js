@@ -1,1 +1,0 @@
-import{S as e}from"./SectionTitle-cfd8406a.js";import{d as t,b as a,g as o,w as s,o as _,i as c,_ as n}from"./index-4fbc3e50.js";const d={class:"about-page"},r=t({__name:"AboutPage",setup(p){return(u,i)=>(_(),a("div",d,[o(e,null,{default:s(()=>[c("To jest jakaś podstrona")]),_:1})]))}});const b=n(r,[["__scopeId","data-v-90da7b4e"]]);export{b as default};
