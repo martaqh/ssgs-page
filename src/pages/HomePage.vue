@@ -13,17 +13,17 @@ const eventsPast = [
   {
     id: 2,
     upcoming: false,
-    imageUrl: "/src/assets/pasja_stas.jpg",
+    imageUrl: "/assets/pasja_stas.jpg",
   },
   {
     id: 2,
     upcoming: false,
-    imageUrl: "/src/assets/Adwentowy.jpg",
+    imageUrl: "/assets/Adwentowy.jpg",
   },
   {
     id: 3,
     upcoming: false,
-    imageUrl: "/src/assets/Ofiarowanie.jpg",
+    imageUrl: "/assets/Ofiarowanie.jpg",
   },
 ];
 </script>
