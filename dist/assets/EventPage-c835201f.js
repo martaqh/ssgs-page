@@ -1,0 +1,1 @@
+import{S as e}from"./SectionTitle-cfd8406a.js";import{d as t,c as o,w as a,o as n,i as r}from"./index-4fbc3e50.js";const i=t({__name:"EventPage",props:{event:{}},setup(s){return(c,p)=>(n(),o(e,null,{default:a(()=>[r("Jestem eventem")]),_:1}))}});export{i as default};
