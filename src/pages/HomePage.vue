@@ -50,6 +50,10 @@ const eventsPast = [
   flex-direction: column;
   &__section {
     margin-top: 48px;
+
+    @include mobile {
+      margin-top: 32px;
+    }
   }
 }
 .cards-section {
@@ -65,7 +69,6 @@ const eventsPast = [
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
   }
 }
 </style>

@@ -17,5 +17,8 @@ import TheHeader from "./components/TheHeader.vue";
   max-width: 1200px;
   padding: 0 24px;
   margin: 0 auto;
+  @include mobile {
+    padding: 0 32px;
+  }
 }
 </style>

@@ -16,7 +16,15 @@
   font-family: $font-title;
   margin: 48px 0;
   padding: 16px 0;
-  //border-bottom: 1px solid $color-accent-light;
+
+  @include tablet {
+    font-size: 2.5rem;
+  }
+
+  @include mobile {
+    font-size: 2rem;
+    margin: 32px 0;
+  }
 
   &__bottom-line {
     width: 100%;

@@ -53,7 +53,6 @@ const props = defineProps<{
 .event-card {
   display: flex;
   flex-direction: column;
-
   align-items: stretch;
   height: 304px;
   padding: 32px;
@@ -62,7 +61,6 @@ const props = defineProps<{
   background-color: $color-card;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-  //box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 4px;
 
   &__content {
@@ -70,7 +68,10 @@ const props = defineProps<{
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 0 0 0 24px;
+      padding-left: 24px;
+      @include mobile {
+        padding-left: 0;
+      }
     }
   }
 
@@ -85,14 +86,23 @@ const props = defineProps<{
       width: 100%;
       height: 100%;
       transition: transform 0.5s ease-in-out;
-      &:hover {
-        transform: scale(1.1);
+
+      @include desktop {
+        &:hover {
+          transform: scale(1.1);
+        }
       }
     }
     &.upcoming {
       height: 100%;
       max-height: 320px;
       max-width: 464px;
+
+      @include mobile {
+        max-width: none;
+        max-height: 240px;
+        aspect-ratio: 1/2;
+      }
     }
   }
   &__title {
@@ -103,6 +113,15 @@ const props = defineProps<{
     &.upcoming {
       margin: 0 0 16px 0;
       font-size: 2.5rem;
+
+      @include tablet {
+        font-size: 2rem;
+      }
+
+      @include mobile {
+        font-size: 1.8rem;
+        margin-top: 32px;
+      }
     }
   }
   &__description {
@@ -114,6 +133,7 @@ const props = defineProps<{
   }
 
   &__details {
+    color: $color-accent-light;
     align-self: flex-end;
     width: fit-content;
     border-radius: 4px;
@@ -121,6 +141,11 @@ const props = defineProps<{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @include mobile {
+      align-self: flex-start;
+      margin: 32px 0;
+    }
   }
   &__time {
     font-size: 1.5rem;
@@ -128,12 +153,25 @@ const props = defineProps<{
     display: flex;
     gap: 32px;
     justify-content: flex-end;
+
+    @include tablet {
+      font-size: 1.3rem;
+    }
+
+    @include mobile {
+      font-size: 1.2rem;
+      justify-content: flex-start;
+    }
   }
   &__place {
     font-size: 1.2rem;
     text-transform: uppercase;
     display: flex;
     justify-content: flex-end;
+
+    @include mobile {
+      justify-content: flex-start;
+    }
   }
 
   &__footer {
@@ -150,6 +188,11 @@ const props = defineProps<{
     flex-direction: row;
     padding: 0;
     height: 320px;
+
+    @include mobile {
+      flex-direction: column;
+      height: fit-content;
+    }
   }
 }
 </style>

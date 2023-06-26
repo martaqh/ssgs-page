@@ -24,12 +24,16 @@ import TopNav from "./TopNav.vue";
   display: flex;
   justify-content: space-between;
 }
-
 .logo {
   padding-top: 24px;
-  margin-left: -18px;
+  margin-left: -16px;
   img {
     max-width: 200px;
+
+    @include mobile {
+      max-width: 160px;
+      justify-self: center;
+    }
   }
 }
 </style>
