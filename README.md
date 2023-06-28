@@ -1,3 +1,5 @@
+The current state of the works can be seen here: https://ssgs-page.vercel.app/
+
 # ssgs-platform
 
 This template should help get you started developing with Vue 3 in Vite.
