@@ -23,7 +23,7 @@ const props = defineProps<{
         </div>
         <div>
           <h2 class="event-card__title" :class="{ upcoming: event.upcoming }">
-            Wigilia św. Jana
+            {{ event.title }}
           </h2>
           <p
             class="event-card__description"
@@ -126,7 +126,7 @@ const props = defineProps<{
   }
   &__description {
     line-height: 1.3;
-
+    color: $color-text-secondary;
     &.upcoming {
       font-size: 1.1rem;
     }

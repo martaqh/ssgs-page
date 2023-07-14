@@ -4,6 +4,7 @@ import SectionTitle from "@/components/SectionTitle.vue";
 
 const eventUpcoming = {
   id: 1,
+  title: "Pieśń nad pieśniami",
   upcoming: true,
   imageUrl:
     "https://upload.wikimedia.org/wikipedia/commons/b/b8/Graduale_Aboense_3.jpg",
@@ -12,16 +13,19 @@ const eventUpcoming = {
 const eventsPast = [
   {
     id: 2,
+    title: "Pasja według św. Jana",
     upcoming: false,
     imageUrl: "/assets/pasja_stas.jpg",
   },
   {
     id: 2,
+    title: "Wieczór pieśni adwentowych",
     upcoming: false,
     imageUrl: "/assets/Adwentowy.jpg",
   },
   {
     id: 3,
+    title: "Nieszpory ku czci...",
     upcoming: false,
     imageUrl: "/assets/Ofiarowanie.jpg",
   },
