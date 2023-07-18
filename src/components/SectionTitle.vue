@@ -25,6 +25,7 @@
   @include mobile {
     font-size: 2rem;
     margin: 32px 0;
+    text-transform: uppercase;
   }
 
   &__bottom-line {

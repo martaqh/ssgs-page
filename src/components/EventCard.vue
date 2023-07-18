@@ -16,8 +16,8 @@ const props = defineProps<{
       <div class="event-card__content" :class="{ upcoming: event.upcoming }">
         <div v-if="event.upcoming" class="event-card__details">
           <div class="event-card__time">
-            <span>23 czerwca 2023 r. (sobota)</span>
-            <span>g. 19:00</span>
+            <span>23 czerwca (sobota)</span>
+            <span>19:00</span>
           </div>
           <span class="event-card__place">Kościół św. Macieja, Wrocław</span>
         </div>
@@ -58,9 +58,12 @@ const props = defineProps<{
   padding: 32px;
   margin-bottom: 32px;
   overflow: hidden;
-  background-color: $color-card;
-
+  //background-color: $color-card;
   box-shadow: $box-shadow;
+  background: rgba(60, 60, 60, 0.2);
+  //box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2px);
+
   border-radius: 4px;
 
   &__content {
@@ -95,13 +98,12 @@ const props = defineProps<{
     }
     &.upcoming {
       height: 100%;
-      max-height: 320px;
       max-width: 464px;
 
       @include mobile {
         max-width: none;
         max-height: 240px;
-        aspect-ratio: 1/2;
+        //aspect-ratio: 1/2;
       }
     }
   }
@@ -192,6 +194,9 @@ const props = defineProps<{
     @include mobile {
       flex-direction: column;
       height: fit-content;
+      > * {
+        font-size: 0.8rem;
+      }
     }
   }
 }

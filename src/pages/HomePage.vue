@@ -60,11 +60,11 @@ const eventsPast = [
     </div>
 
     <section class="home-page__section">
-      <SectionTitle>Nadchodzące wydarzenia</SectionTitle>
+      <SectionTitle>Najblizsze wydarzenia</SectionTitle>
       <EventCard :event="eventUpcoming" />
     </section>
     <section class="home-page__section">
-      <SectionTitle>Dotychczasowe realizacje</SectionTitle>
+      <SectionTitle>A tak było</SectionTitle>
       <div class="cards-section">
         <EventCard v-for="event of eventsPast" :event="event" />
         <EventCard v-for="event of eventsPast" :event="event" />
@@ -84,7 +84,8 @@ const eventsPast = [
     margin: 0 auto;
 
     @include mobile {
-      margin-top: 32px;
+      margin: 32px 0 0;
+      padding: 0 32px;
     }
   }
   &__hero-section {
@@ -100,24 +101,55 @@ const eventsPast = [
     background-repeat: no-repeat;
     background-size: cover;
 
+    @include tablet {
+      padding: 64px;
+    }
+
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 48px;
+      padding: 48px;
+    }
+
     &__title {
       display: flex;
       flex-direction: column;
       justify-content: center;
       font-family: $font-title;
       line-height: 1.1;
-      align-self: flex-start;
-      grid-column: 1/3;
-      grid-row: 1/3;
+      grid-column: 1/4;
 
       gap: 24px;
 
+      @include mobile {
+        text-align: center;
+      }
+
       h1 {
         font-size: 5rem;
+
+        @include tablet {
+          font-size: 4rem;
+        }
+
+        @include mobile {
+          font-size: 2.5rem;
+        }
       }
 
       h2 {
         font-size: 1.5rem;
+
+        @include tablet {
+          font-size: 1.2rem;
+        }
+
+        @include mobile {
+          font-size: 0.8rem;
+        }
       }
     }
 
@@ -134,13 +166,26 @@ const eventsPast = [
       grid-column: 1/3;
       font-size: 1.2rem;
       letter-spacing: 0.2rem;
+      /* From https://css.glass */
+      background: rgba(60, 60, 60, 0.2);
+      //box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(2px);
+      border: 1px solid $color-accent-light;
 
       &:hover {
         cursor: pointer;
         color: $color-accent;
-        text-shadow: 0px 0px 20px $color-accent-light;
-        box-shadow: 0px 0px 10px $color-accent-light;
-        transition: all 0.3s ease-out;
+        text-shadow: 0px 0px 20px $color-accent;
+        box-shadow: 00px 0px 10px $color-accent;
+        transition: all 0.2s ease-in;
+        border: 2px solid $color-accent;
+      }
+
+      @include mobile {
+        padding: 16px;
+        font-size: 1rem;
+        letter-spacing: normal;
+        width: 70%;
       }
     }
 
@@ -153,8 +198,12 @@ const eventsPast = [
       width: 100%;
       overflow: hidden;
       object-fit: cover;
-      filter: brightness(50%);
+      filter: brightness(70%);
       border-radius: $border-radius;
+
+      @include mobile {
+        display: none;
+      }
 
       &.first {
         grid-column: 5/7;

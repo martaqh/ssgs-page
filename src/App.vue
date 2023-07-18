@@ -14,9 +14,7 @@ import TheHeader from "./components/TheHeader.vue";
 .app {
   color: $color-text-primary;
   font-family: $font-text;
-
-  @include mobile {
-    padding: 0 32px;
-  }
+  max-width: 1440px;
+  margin: 0 auto;
 }
 </style>
