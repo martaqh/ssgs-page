@@ -1,18 +1,32 @@
-@import url("https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=DM+Sans:wght@400;500;700&family=Josefin+Sans:wght@400;700&family=Jost:wght@400;700&family=Karla:wght@400;700&family=Lato:wght@400;700&family=Lustria&family=Marcellus&family=Montserrat:wght@400;700&family=Petrona:wght@400;500;600;700&family=Quattrocento:wght@400;700&family=Spectral:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300;400&family=Alegreya+Sans:wght@400;500;700&family=Alegreya:wght@400;500&family=Cinzel:wght@400;500&family=Cormorant+Unicase:wght@400;500&family=Eczar:wght@400;500&family=Marcellus&family=Ysabeau+Office:wght@400;500&display=swap");
 
-$font-title: "Spectral", serif;
+$font-title: "Marcellus", serif;
+//"Spectral", serif;
 $font-text: "DM Sans", sans-serif;
 
-$color-background: #1d1c1b;
-// #262421;
+$background: linear-gradient(
+  45deg,
+  hsl(0deg 0% 5%) 0%,
+  hsl(240deg 1% 6%) 11%,
+  hsl(240deg 2% 6%) 22%,
+  hsl(240deg 2% 7%) 33%,
+  hsl(240deg 3% 7%) 44%,
+  hsl(240deg 3% 7%) 56%,
+  hsl(240deg 4% 7%) 67%,
+  hsl(240deg 4% 8%) 78%,
+  hsl(240deg 4% 8%) 89%,
+  hsl(240deg 5% 8%) 100%
+);
 
-$color-text-primary: #f2f0ee;
-$color-text-secondary: #bebcbb;
-$color-accent: #f0a756;
-//#fa9417;
-$color-accent-light: #ffb563;
-$color-card: #302e2d;
-// no shadow: #444341;
-// with shadow: #302e2d;
-// #3c3a34;
-//#faac52;
+//#212123;
+
+$color-text-primary: #e1e1e1;
+$color-text-secondary: #bbbaba;
+$color-accent: #ffa441;
+
+$color-accent-light: #fdb566;
+$color-card: #28272a;
+
+$border-radius: 4px;
+
+$box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;

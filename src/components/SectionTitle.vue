@@ -14,6 +14,7 @@
 .section-title {
   font-size: 3rem;
   font-family: $font-title;
+  font-weight: 300;
   margin: 48px 0;
   padding: 16px 0;
 

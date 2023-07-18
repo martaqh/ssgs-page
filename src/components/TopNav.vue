@@ -30,8 +30,7 @@
   &__item {
     padding: 24px;
     text-transform: uppercase;
-    font-size: 1.1rem;
-    //color: $color-text-primary;
+
     &:hover {
       cursor: pointer;
       color: $color-accent;
