@@ -125,7 +125,7 @@ const invalidEmail = computed(() => {
     height: fit-content;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(3, 160px);
+    grid-template-rows: repeat(3, 200px);
     grid-gap: 16px;
     background-image: url(/src/assets/salve-regina.svg);
     background-repeat: no-repeat;
@@ -194,7 +194,7 @@ const invalidEmail = computed(() => {
     }
 
     &__action {
-      align-self: flex-end;
+      align-self: flex-start;
       grid-row: 3;
       grid-column: 1/6;
     }
@@ -220,8 +220,8 @@ const invalidEmail = computed(() => {
         grid-row: 1;
       }
       &.second {
-        grid-column: 8/11;
-        grid-row: 2;
+        grid-column: 9/13;
+        grid-row: 3;
       }
 
       &.third {
