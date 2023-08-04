@@ -13,7 +13,7 @@ import TheHeader from "./components/TheHeader.vue";
 <style scoped lang="scss">
 .app {
   color: $color-text-primary;
-  font-family: $font-text;
+  font-family: $font-main;
   max-width: 1440px;
   margin: 0 auto;
 }

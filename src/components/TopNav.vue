@@ -2,17 +2,10 @@
 <template>
   <span class="top-nav__hamburger">|||</span>
   <ul class="top-nav__main">
-    <router-link to="/o-nas" class="top-nav__item">O nas</router-link>
-    <router-link to="/robert-pozarski" class="top-nav__item"
-      >Robert Pożarski</router-link
-    >
-    <router-link to="/oferta-koncertowa" class="top-nav__item"
-      >Oferta koncertowa</router-link
-    >
-    <router-link to="/dyskografia" class="top-nav__item"
-      >Dyskografia</router-link
-    >
-    <router-link to="/kontakt" class="top-nav__item">Kontakt</router-link>
+    <router-link to="/about" class="top-nav__item">O nas</router-link>
+    <router-link to="/music" class="top-nav__item">Nasza muzyka</router-link>
+    <router-link to="/sources" class="top-nav__item">Źródła</router-link>
+    <router-link to="/contact" class="top-nav__item">Kontakt</router-link>
   </ul>
 </template>
 

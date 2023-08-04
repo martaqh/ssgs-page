@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref, computed } from "vue";
+import BaseButton from "@/components/BaseButton.vue";
 import EventCard from "@/components/EventCard.vue";
 import SectionTitle from "@/components/SectionTitle.vue";
 
@@ -30,18 +32,37 @@ const eventsPast = [
     imageUrl: "/assets/Ofiarowanie.jpg",
   },
 ];
+
+const inputTouched = ref(false);
+const userEmail = ref("");
+
+const isEmailValid = (input: string) => {
+  return /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+    input
+  );
+};
+
+const invalidEmail = computed(() => {
+  return inputTouched.value && !isEmailValid(userEmail.value);
+});
 </script>
 
 <template>
   <main class="home-page">
     <div class="home-page__hero-section">
-      <div class="home-page__hero-section__title">
+      <div class="home-page__hero-section__text">
         <h1>Chorał gregoriański</h1>
         <h2>Muzyka z głębi serca i historii</h2>
+        <p class="home-page__hero-section__description">
+          Stowarzyszenie "Schola Gregoriana Silesiensis" zrzesza śpiewaków i
+          śpiewaczki wykonujących chorał gregoriański i pieśni tradycyjne.
+          Śpiewamy razem od ponad 20 lat.
+        </p>
       </div>
-      <RouterLink class="home-page__hero-section__action" to="/about">
-        <strong>Posłuchaj</strong>
-      </RouterLink>
+
+      <BaseButton class="home-page__hero-section__action" to="/about">
+        Poznaj naszą muzykę
+      </BaseButton>
 
       <img
         class="home-page__hero-section__photo first"
@@ -59,12 +80,32 @@ const eventsPast = [
       />
     </div>
 
-    <section class="home-page__section">
-      <SectionTitle>Najblizsze wydarzenia</SectionTitle>
+    <section class="home-page__newsletter offset">
+      <h1>
+        Chcesz otrzymywać informacje o nadchodzących wydarzeniach? Zapisz się na
+        nasz <span>newsletter</span>!
+      </h1>
+
+      <input
+        type="email"
+        placeholder="Podaj swój adres e-mail"
+        v-model="userEmail"
+        @blur="inputTouched = true"
+        :class="{ invalid: invalidEmail }"
+      />
+      <p v-if="invalidEmail">Podany adres e-mail nie jest poprawny.</p>
+
+      <BaseButton class="home-page__newsletter__submit" context="form">
+        Zapisuję się
+      </BaseButton>
+    </section>
+
+    <section class="home-page__upcoming-events offset">
+      <SectionTitle>Nadchodzące wydarzenia</SectionTitle>
       <EventCard :event="eventUpcoming" />
     </section>
-    <section class="home-page__section">
-      <SectionTitle>A tak było</SectionTitle>
+    <section class="home-page__past-events offset">
+      <SectionTitle>Zrealizowane wydarzenia</SectionTitle>
       <div class="cards-section">
         <EventCard v-for="event of eventsPast" :event="event" />
         <EventCard v-for="event of eventsPast" :event="event" />
@@ -78,24 +119,13 @@ const eventsPast = [
   display: flex;
   flex-direction: column;
 
-  &__section {
-    margin-top: 48px;
-    max-width: 1200px;
-    margin: 0 auto;
-
-    @include mobile {
-      margin: 32px 0 0;
-      padding: 0 32px;
-    }
-  }
   &__hero-section {
     margin: 48px 0;
     padding: 80px;
     height: fit-content;
-    text-transform: uppercase;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(2, 200px);
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(3, 160px);
     grid-gap: 16px;
     background-image: url(/src/assets/salve-regina.svg);
     background-repeat: no-repeat;
@@ -114,13 +144,14 @@ const eventsPast = [
       padding: 48px;
     }
 
-    &__title {
+    &__text {
       display: flex;
       flex-direction: column;
       justify-content: center;
       font-family: $font-title;
       line-height: 1.1;
-      grid-column: 1/4;
+      grid-column: 1/8;
+      grid-row: 1/3;
 
       gap: 24px;
 
@@ -130,7 +161,7 @@ const eventsPast = [
 
       h1 {
         font-size: 5rem;
-
+        text-transform: uppercase;
         @include tablet {
           font-size: 4rem;
         }
@@ -142,6 +173,7 @@ const eventsPast = [
 
       h2 {
         font-size: 1.5rem;
+        text-transform: uppercase;
 
         @include tablet {
           font-size: 1.2rem;
@@ -151,42 +183,20 @@ const eventsPast = [
           font-size: 0.8rem;
         }
       }
+
+      p {
+        margin-top: 2rem;
+        font-family: $font-main;
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+        text-wrap: balance;
+      }
     }
 
     &__action {
-      height: fit-content;
-      padding: 24px;
-      border: 1px solid $color-accent;
-      border-radius: $border-radius;
-      box-shadow: box-shadow;
-      color: $color-accent;
-      text-align: center;
-      align-self: center;
-      grid-row: 2;
-      grid-column: 1/3;
-      font-size: 1.2rem;
-      letter-spacing: 0.2rem;
-      /* From https://css.glass */
-      background: rgba(60, 60, 60, 0.2);
-      //box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(2px);
-      border: 1px solid $color-accent-light;
-
-      &:hover {
-        cursor: pointer;
-        color: $color-accent;
-        text-shadow: 0px 0px 20px $color-accent;
-        box-shadow: 00px 0px 10px $color-accent;
-        transition: all 0.2s ease-in;
-        border: 2px solid $color-accent;
-      }
-
-      @include mobile {
-        padding: 16px;
-        font-size: 1rem;
-        letter-spacing: normal;
-        width: 70%;
-      }
+      align-self: flex-end;
+      grid-row: 3;
+      grid-column: 1/6;
     }
 
     &__photo {
@@ -206,18 +216,59 @@ const eventsPast = [
       }
 
       &.first {
-        grid-column: 5/7;
+        grid-column: 10/13;
         grid-row: 1;
       }
       &.second {
-        grid-column: 4/6;
+        grid-column: 8/11;
         grid-row: 2;
       }
 
       &.third {
-        grid-column: 6/7;
+        grid-column: 11/13;
         grid-row: 2;
       }
+    }
+  }
+
+  &__newsletter {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    align-items: center;
+
+    h1 {
+      font-size: 1.5rem;
+
+      span {
+        color: $color-accent;
+      }
+    }
+
+    input {
+      padding: 20px;
+      width: 40%;
+      font-family: $font-main;
+      font-size: 1rem;
+      border-radius: $border-radius;
+      background-color: $color-text-primary;
+
+      &:focus-visible {
+        outline: 2px solid $color-accent;
+        border: 1px solid $color-accent;
+      }
+      &.invalid {
+        outline: 3px solid $color-error;
+        border: 1px solid $color-error;
+      }
+    }
+
+    p {
+      color: $color-error;
+    }
+
+    &__submit {
+      width: 30%;
     }
   }
 }
@@ -235,6 +286,20 @@ const eventsPast = [
     width: 100%;
     display: flex;
     flex-direction: column;
+  }
+}
+
+.offset {
+  max-width: 1200px;
+  margin: 90px auto;
+
+  @include tablet {
+    margin: 64px auto;
+  }
+
+  @include mobile {
+    margin: 32px 0 0;
+    padding: 0 32px;
   }
 }
 </style>
