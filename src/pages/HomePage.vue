@@ -34,6 +34,7 @@ const eventsPast = [
 ];
 
 const inputTouched = ref(false);
+const submitClicked = ref(false);
 const userEmail = ref("");
 
 const isEmailValid = (input: string) => {
@@ -45,6 +46,18 @@ const isEmailValid = (input: string) => {
 const invalidEmail = computed(() => {
   return inputTouched.value && !isEmailValid(userEmail.value);
 });
+
+const subscribed = computed(() => {
+  return isEmailValid(userEmail.value) && submitClicked.value;
+});
+
+const handleSubmit = () => {
+  submitClicked.value = true;
+  !isEmailValid(userEmail.value) ? (submitClicked.value = false) : null;
+};
+
+console.log(userEmail.value);
+console.log(submitClicked.value);
 </script>
 
 <template>
@@ -81,21 +94,33 @@ const invalidEmail = computed(() => {
     </div>
 
     <section class="home-page__newsletter offset">
-      <h1>
+      <h1 v-if="!subscribed">
         Chcesz otrzymywać informacje o nadchodzących wydarzeniach? Zapisz się na
         nasz <span>newsletter</span>!
       </h1>
+      <h1 v-if="subscribed">
+        <span>Udało się!</span> Wiadomość o naszej kolejnej inicjatywie trafi
+        prosto do Twojej skrzynki mailowej.
+      </h1>
 
       <input
+        v-if="!subscribed"
         type="email"
         placeholder="Podaj swój adres e-mail"
         v-model="userEmail"
         @blur="inputTouched = true"
         :class="{ invalid: invalidEmail }"
       />
-      <p v-if="invalidEmail">Podany adres e-mail nie jest poprawny.</p>
+      <p v-if="invalidEmail">
+        Podany adres e-mail jest niepoprawny. Wpisz właściwy adres.
+      </p>
 
-      <BaseButton class="home-page__newsletter__submit" context="form">
+      <BaseButton
+        v-if="!subscribed"
+        class="home-page__newsletter__submit"
+        context="form"
+        @click="handleSubmit()"
+      >
         Zapisuję się
       </BaseButton>
     </section>
