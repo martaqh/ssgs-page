@@ -222,6 +222,10 @@ console.log(submitClicked.value);
       align-self: flex-start;
       grid-row: 3;
       grid-column: 1/6;
+
+      @include mobile {
+        align-self: center;
+      }
     }
 
     &__photo {
@@ -261,9 +265,14 @@ console.log(submitClicked.value);
     flex-direction: column;
     gap: 48px;
     align-items: center;
+    text-align: center;
 
     h1 {
       font-size: 1.5rem;
+
+      @include mobile {
+        font-size: 1.2rem;
+      }
 
       span {
         color: $color-accent;
@@ -271,8 +280,8 @@ console.log(submitClicked.value);
     }
 
     input {
-      padding: 20px;
-      width: 40%;
+      padding: 16px;
+      width: 70%;
       font-family: $font-main;
       font-size: 1rem;
       border-radius: $border-radius;
@@ -290,10 +299,6 @@ console.log(submitClicked.value);
 
     p {
       color: $color-error;
-    }
-
-    &__submit {
-      width: 30%;
     }
   }
 }
