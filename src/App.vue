@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import { RouterView } from "vue-router";
-import TheHeader from "./components/TheHeader.vue";
 </script>
 
 <template>
   <main class="app">
-    <TheHeader />
     <router-view />
   </main>
 </template>
@@ -14,7 +12,6 @@ import TheHeader from "./components/TheHeader.vue";
 .app {
   color: $color-text-primary;
   font-family: $font-main;
-  max-width: 1440px;
-  margin: 0 auto;
+  font-weight: 500;
 }
 </style>

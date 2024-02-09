@@ -108,7 +108,7 @@ const props = defineProps<{
     }
   }
   &__title {
-    font-family: $font-title;
+    font-family: $font-main;
     font-size: 1.5rem;
     margin: 32px 0 16px;
 

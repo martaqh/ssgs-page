@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
-import BaseButton from "@/components/BaseButton.vue";
 import EventCard from "@/components/EventCard.vue";
 import SectionTitle from "@/components/SectionTitle.vue";
+import TheHeader from "@/components/TheHeader.vue";
+import BasePage from "@/pages/BasePage.vue";
 
 const eventUpcoming = {
   id: 1,
@@ -32,130 +32,73 @@ const eventsPast = [
     imageUrl: "/assets/Ofiarowanie.jpg",
   },
 ];
-
-const inputTouched = ref(false);
-const submitClicked = ref(false);
-const userEmail = ref("");
-
-const isEmailValid = (input: string) => {
-  return /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-    input
-  );
-};
-
-const invalidEmail = computed(() => {
-  return inputTouched.value && !isEmailValid(userEmail.value);
-});
-
-const subscribed = computed(() => {
-  return isEmailValid(userEmail.value) && submitClicked.value;
-});
-
-const handleSubmit = () => {
-  submitClicked.value = true;
-  !isEmailValid(userEmail.value) ? (submitClicked.value = false) : null;
-};
-
-console.log(userEmail.value);
-console.log(submitClicked.value);
 </script>
 
 <template>
-  <main class="home-page">
-    <div class="home-page__hero-section">
-      <div class="home-page__hero-section__text">
-        <h1>Chorał gregoriański</h1>
-        <h2>Muzyka z głębi serca i historii</h2>
-        <p class="home-page__hero-section__description">
-          Stowarzyszenie "Schola Gregoriana Silesiensis" zrzesza śpiewaków i
-          śpiewaczki wykonujących chorał gregoriański i pieśni tradycyjne.
-          Śpiewamy razem od ponad 20 lat.
-        </p>
+  <BasePage
+    ><main class="home-page">
+      <div class="home-page__hero-section">
+        <TheHeader />
+        <div class="home-page__hero-section__text">
+          <div class="home-page__hero-section__title">
+            <h1>
+              Chorał gregoriański <br />
+              Muzyka
+              <span
+                >z głębi <br />
+                serca i historii</span
+              >
+            </h1>
+          </div>
+          <div class="home-page__hero-section__description">
+            <p>
+              Stowarzyszenie
+              <br />
+              <span> Schola Gregoriana Silesiensis </span>
+              <br />
+              zrzesza śpiewaków i śpiewaczki <br />
+              wykonujących <br />
+              <span>chorał gregoriański i pieśni tradycyjne</span>
+              <br />
+              Śpiewamy razem od ponad 20 lat
+            </p>
+          </div>
+        </div>
       </div>
 
-      <BaseButton class="home-page__hero-section__action" to="/about">
-        Poznaj naszą muzykę
-      </BaseButton>
-
-      <img
-        class="home-page__hero-section__photo first"
-        src="/src/assets/IMG_3051.jpg"
-      />
-
-      <img
-        class="home-page__hero-section__photo second"
-        src="/src/assets/IMG_2790.jpg"
-      />
-
-      <img
-        class="home-page__hero-section__photo third"
-        src="/src/assets/IMG_3055.jpg"
-      />
-    </div>
-
-    <section class="home-page__newsletter offset">
-      <h1 v-if="!subscribed">
-        Chcesz otrzymywać informacje o nadchodzących wydarzeniach? Zapisz się na
-        nasz <span>newsletter</span>!
-      </h1>
-      <h1 v-if="subscribed">
-        <span>Udało się!</span> Wiadomość o naszej kolejnej inicjatywie trafi
-        prosto do Twojej skrzynki mailowej.
-      </h1>
-
-      <input
-        v-if="!subscribed"
-        type="email"
-        placeholder="Podaj swój adres e-mail"
-        v-model="userEmail"
-        @blur="inputTouched = true"
-        :class="{ invalid: invalidEmail }"
-      />
-      <p v-if="invalidEmail">
-        Podany adres e-mail jest niepoprawny. Wpisz właściwy adres.
-      </p>
-
-      <BaseButton
-        v-if="!subscribed"
-        class="home-page__newsletter__submit"
-        context="form"
-        @click="handleSubmit()"
-      >
-        Zapisuję się
-      </BaseButton>
-    </section>
-
-    <section class="home-page__upcoming-events offset">
-      <SectionTitle>Nadchodzące wydarzenia</SectionTitle>
-      <EventCard :event="eventUpcoming" />
-    </section>
-    <section class="home-page__past-events offset">
-      <SectionTitle>Zrealizowane wydarzenia</SectionTitle>
-      <div class="cards-section">
-        <EventCard v-for="event of eventsPast" :event="event" />
-        <EventCard v-for="event of eventsPast" :event="event" />
-      </div>
-    </section>
-  </main>
+      <section class="home-page__upcoming-events offset">
+        <SectionTitle>Nadchodzące wydarzenia</SectionTitle>
+        <EventCard :event="eventUpcoming" />
+      </section>
+      <section class="home-page__past-events offset">
+        <SectionTitle>Zrealizowane wydarzenia</SectionTitle>
+        <div class="cards-section">
+          <EventCard v-for="event of eventsPast" :event="event" />
+          <EventCard v-for="event of eventsPast" :event="event" />
+        </div>
+      </section>
+    </main>
+  </BasePage>
 </template>
 
 <style scoped lang="scss">
 .home-page {
   display: flex;
   flex-direction: column;
+  width: 100%;
 
   &__hero-section {
-    margin: 48px 0;
-    padding: 80px;
-    height: fit-content;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(3, 200px);
-    grid-gap: 16px;
-    background-image: url(/src/assets/salve-regina.svg);
+    padding: 48px;
+    height: 80vh;
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      url(/src/assets/IMG_3380.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     @include tablet {
       padding: 64px;
     }
@@ -170,93 +113,18 @@ console.log(submitClicked.value);
     }
 
     &__text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      font-family: $font-title;
-      line-height: 1.1;
-      grid-column: 1/8;
-      grid-row: 1/3;
-
-      gap: 24px;
-
-      @include mobile {
-        text-align: center;
-      }
-
-      h1 {
-        font-size: 5rem;
-        text-transform: uppercase;
-        @include tablet {
-          font-size: 4rem;
-        }
-
-        @include mobile {
-          font-size: 2.5rem;
-        }
-      }
-
-      h2 {
-        font-size: 1.5rem;
-        text-transform: uppercase;
-
-        @include tablet {
-          font-size: 1.2rem;
-        }
-
-        @include mobile {
-          font-size: 0.8rem;
-        }
-      }
-
-      p {
-        margin-top: 2rem;
-        font-family: $font-main;
-        font-size: 1.2rem;
-        line-height: 1.6rem;
-        text-wrap: balance;
-      }
-    }
-
-    &__action {
-      align-self: flex-start;
-      grid-row: 3;
-      grid-column: 1/6;
-
-      @include mobile {
-        align-self: center;
-      }
-    }
-
-    &__photo {
-      overflow: hidden;
-      max-height: 300px;
-      box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
-        rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-      height: 100%;
       width: 100%;
-      overflow: hidden;
-      object-fit: cover;
-      filter: brightness(70%);
-      border-radius: $border-radius;
+      display: flex;
+      justify-content: space-between;
+      font-size: 2rem;
 
-      @include mobile {
-        display: none;
+      span {
+        color: $color-accent;
       }
+    }
 
-      &.first {
-        grid-column: 10/13;
-        grid-row: 1;
-      }
-      &.second {
-        grid-column: 9/13;
-        grid-row: 3;
-      }
-
-      &.third {
-        grid-column: 11/13;
-        grid-row: 2;
-      }
+    &__description {
+      text-align: end;
     }
   }
 
