@@ -56,9 +56,13 @@ const eventsPast = [
               <br />
               <span> Schola Gregoriana Silesiensis </span>
               <br />
-              zrzesza śpiewaków i śpiewaczki <br />
+              <strong>zrzesza</strong> śpiewaków i śpiewaczki <br />
               wykonujących <br />
-              <span>chorał gregoriański i pieśni tradycyjne</span>
+              <span>
+                chorał gregoriański
+                <br />
+                i pieśni tradycyjne
+              </span>
               <br />
               Śpiewamy razem od ponad 20 lat
             </p>
@@ -88,9 +92,8 @@ const eventsPast = [
   width: 100%;
 
   &__hero-section {
-    padding: 48px;
-    height: 80vh;
-
+    padding: 48px 84px;
+    min-height: 800px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
       url(/src/assets/IMG_3380.jpg);
     background-repeat: no-repeat;
@@ -99,74 +102,38 @@ const eventsPast = [
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    @include tablet {
-      padding: 64px;
-    }
-
-    @include mobile {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 48px;
-      padding: 48px;
-    }
 
     &__text {
       width: 100%;
       display: flex;
       justify-content: space-between;
-      font-size: 2rem;
+      align-items: center;
+      font-size: 32px;
+      line-height: 150%;
+    }
+
+    &__title {
+      font-weight: 700;
+      font-size: 40px;
 
       span {
         color: $color-accent;
+        font-size: 48px;
       }
     }
 
     &__description {
       text-align: end;
-    }
-  }
-
-  &__newsletter {
-    display: flex;
-    flex-direction: column;
-    gap: 48px;
-    align-items: center;
-    text-align: center;
-
-    h1 {
-      font-size: 1.5rem;
-
-      @include mobile {
-        font-size: 1.2rem;
-      }
+      font-weight: 600;
+      font-size: 32px;
 
       span {
         color: $color-accent;
+        font-size: 40px;
       }
-    }
-
-    input {
-      padding: 16px;
-      width: 70%;
-      font-family: $font-main;
-      font-size: 1rem;
-      border-radius: $border-radius;
-      background-color: $color-text-primary;
-
-      &:focus-visible {
-        outline: 2px solid $color-accent;
-        border: 1px solid $color-accent;
+      strong {
+        font-size: 28px;
       }
-      &.invalid {
-        outline: 3px solid $color-error;
-        border: 1px solid $color-error;
-      }
-    }
-
-    p {
-      color: $color-error;
     }
   }
 }
