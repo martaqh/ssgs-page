@@ -16,6 +16,7 @@ import TopNav from "./TopNav.vue";
   margin: 0;
   display: flex;
   justify-content: space-between;
+  color: $color-text-secondary;
 }
 .logo {
   img {

@@ -1,34 +1,51 @@
 <script setup lang="ts">
-import EventCard from "@/components/EventCard.vue";
 import SectionTitle from "@/components/SectionTitle.vue";
 import TheHeader from "@/components/TheHeader.vue";
 import BasePage from "@/pages/BasePage.vue";
+import CardsDisplay from "@/views/CardsDisplay.vue";
+import EventCard from "@/components/EventCard.vue";
 
-const eventUpcoming = {
-  id: 1,
-  title: "Pieśń nad pieśniami",
-  upcoming: true,
-  imageUrl:
-    "https://upload.wikimedia.org/wikipedia/commons/b/b8/Graduale_Aboense_3.jpg",
-};
-
-const eventsPast = [
+const upcomingEvents = [
+  {
+    id: 1,
+    title: "Pieśń nad pieśniami",
+    festival: "XXXI Festiwal Pieśń Naszych Korzeni",
+    place: "Jarosław",
+    date: "23 sierpnia 2024 r.",
+    time: "20:00",
+    imageUrl: "/assets/Adwentowy.jpg",
+  },
   {
     id: 2,
+    title: "Kodeks Mikołaja z Koźla",
+    place: "Koźle",
+    date: "23 kwietnia 2024 r.",
+    time: "20:00",
+    imageUrl:
+      "https://upload.wikimedia.org/wikipedia/commons/b/b8/Graduale_Aboense_3.jpg",
+  },
+];
+
+const pastEvents = [
+  {
+    id: 1,
     title: "Pasja według św. Jana",
-    upcoming: false,
+    place: "Wrocław",
+    date: "19 marca 2019 r.",
     imageUrl: "/assets/pasja_stas.jpg",
   },
   {
     id: 2,
     title: "Wieczór pieśni adwentowych",
-    upcoming: false,
+    place: "Wrocław Strachocin",
+    date: "14 grudnia 2023 r.",
     imageUrl: "/assets/Adwentowy.jpg",
   },
   {
     id: 3,
-    title: "Nieszpory ku czci...",
-    upcoming: false,
+    title: "Oficjum o świętym Augustynie",
+    place: "Ibramowice",
+    date: "3 listopada 2023 r.",
     imageUrl: "/assets/Ofiarowanie.jpg",
   },
 ];
@@ -72,14 +89,25 @@ const eventsPast = [
 
       <section class="home-page__upcoming-events offset">
         <SectionTitle>Nadchodzące wydarzenia</SectionTitle>
-        <EventCard :event="eventUpcoming" />
+        <CardsDisplay>
+          <EventCard
+            v-for="event of upcomingEvents"
+            :event="event"
+            :key="event.id"
+          >
+          </EventCard>
+        </CardsDisplay>
       </section>
       <section class="home-page__past-events offset">
         <SectionTitle>Zrealizowane wydarzenia</SectionTitle>
-        <div class="cards-section">
-          <EventCard v-for="event of eventsPast" :event="event" />
-          <EventCard v-for="event of eventsPast" :event="event" />
-        </div>
+
+        <CardsDisplay>
+          <EventCard
+            v-for="event of pastEvents"
+            :event="event"
+            :key="event.id"
+          ></EventCard>
+        </CardsDisplay>
       </section>
     </main>
   </BasePage>
@@ -108,6 +136,7 @@ const eventsPast = [
       display: flex;
       justify-content: space-between;
       align-items: center;
+      color: $color-text-secondary;
       font-size: 32px;
       line-height: 150%;
     }
@@ -138,33 +167,7 @@ const eventsPast = [
   }
 }
 
-.cards-section {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 24px;
-
-  @include tablet {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @include mobile {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-}
-
 .offset {
-  max-width: 1200px;
-  margin: 90px auto;
-
-  @include tablet {
-    margin: 64px auto;
-  }
-
-  @include mobile {
-    margin: 32px 0 0;
-    padding: 0 32px;
-  }
+  margin: 90px 84px 0 84px;
 }
 </style>
