@@ -2,10 +2,18 @@
 <template>
   <span class="top-nav__hamburger">|||</span>
   <ul class="top-nav__main">
-    <router-link to="/about" class="top-nav__item">O nas</router-link>
-    <router-link to="/music" class="top-nav__item">Nasza muzyka</router-link>
-    <router-link to="/sources" class="top-nav__item">Źródła</router-link>
-    <router-link to="/contact" class="top-nav__item">Kontakt</router-link>
+    <li class="top-nav__item">
+      <router-link to="/about">O nas</router-link>
+    </li>
+    <li class="top-nav__item">
+      <router-link to="/music">Nasza muzyka</router-link>
+    </li>
+    <li class="top-nav__item">
+      <router-link to="/sources">Źródła</router-link>
+    </li>
+    <li class="top-nav__item">
+      <router-link to="/contact">Kontakt</router-link>
+    </li>
   </ul>
 </template>
 
@@ -19,16 +27,17 @@
     @include mobile {
       display: none;
     }
+    & li:last-child {
+      padding-right: 0px;
+    }
   }
   &__item {
-    padding: 24px;
+    padding: 20px 28px;
     text-transform: uppercase;
 
     &:hover {
       cursor: pointer;
       color: $color-accent;
-      text-shadow: 0px 0px 20px $color-accent-light;
-      transition: all 0.2s ease-in;
     }
   }
   &__hamburger {

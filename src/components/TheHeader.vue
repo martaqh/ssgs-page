@@ -13,20 +13,15 @@ import TopNav from "./TopNav.vue";
 
 <style scoped lang="scss">
 .header {
-  //max-width: 1200px;
-  margin: 0 auto;
-  padding: 24px 80px;
+  margin: 0;
   display: flex;
   justify-content: space-between;
+  color: $color-text-secondary;
 }
 .logo {
-  padding-top: 24px;
-  margin-left: -16px;
-
   img {
     max-width: 200px;
-    filter: invert(66%) sepia(70%) saturate(366%) hue-rotate(342deg)
-      brightness(102%) contrast(103%);
+    filter: brightness(0) invert(1);
     @include mobile {
       max-width: 160px;
       justify-self: center;
