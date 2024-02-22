@@ -81,7 +81,14 @@ const pastEvents = [
                 i pieśni tradycyjne
               </span>
               <br />
-              Śpiewamy razem od ponad 20 lat
+            </p>
+            <p>
+              Od ponad 20 lat śpiewamy tak, jak nas uczył
+              <br />
+
+              <router-link to="/about"
+                ><span>Robert Pożarski</span></router-link
+              >
             </p>
           </div>
         </div>
@@ -138,16 +145,36 @@ const pastEvents = [
       align-items: center;
       color: $color-text-secondary;
       font-size: 32px;
-      line-height: 150%;
+
+      @include desktop {
+        font-size: 28px;
+      }
     }
 
     &__title {
       font-weight: 700;
       font-size: 40px;
+      line-height: 130%;
+
+      @include desktop {
+        font-size: 32px;
+      }
+
+      @include tablet {
+        display: none;
+      }
+
+      @include mobile {
+        display: none;
+      }
 
       span {
         color: $color-accent;
         font-size: 48px;
+
+        @include desktop {
+          font-size: 40px;
+        }
       }
     }
 
@@ -155,19 +182,43 @@ const pastEvents = [
       text-align: end;
       font-weight: 600;
       font-size: 32px;
+      line-height: 120%;
+
+      @include desktop {
+        font-size: 28px;
+      }
+
+      @include tablet {
+        width: 100%;
+        text-align: start;
+      }
 
       span {
         color: $color-accent;
         font-size: 40px;
+
+        @include desktop {
+          font-size: 32px;
+        }
       }
       strong {
         font-size: 28px;
+
+        @include desktop {
+          font-size: 24px;
+        }
+      }
+
+      p:last-child {
+        margin-top: 34px;
       }
     }
   }
 }
 
 .offset {
-  margin: 90px 84px 0 84px;
+  margin-top: 90px;
+  margin-left: 84px;
+  margin-right: 84px;
 }
 </style>

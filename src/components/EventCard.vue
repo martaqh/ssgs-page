@@ -29,7 +29,7 @@ const props = defineProps<{
         {{ event.festival }}
       </h6>
 
-      <div class="event-card__time">
+      <div class="event-card__details">
         <time>{{ event.date }} {{ event.time }}</time> /
         <span class="event-card__place"> {{ event.place }}</span>
       </div>
@@ -40,7 +40,7 @@ const props = defineProps<{
 <style scoped lang="scss">
 .event-card {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 1;
   margin-bottom: 32px;
   overflow: hidden;
   font-size: 18px;
@@ -59,7 +59,7 @@ const props = defineProps<{
   &__image {
     width: 100%;
     height: 60%;
-    max-height: 275px;
+    max-height: 236px;
     margin-bottom: 8px;
     overflow: hidden;
 
@@ -77,14 +77,26 @@ const props = defineProps<{
     font-size: 22px;
     line-height: 130%;
 
+    @include desktop {
+      font-size: 20px;
+    }
+
     h6 {
       text-transform: none;
       font-size: 20px;
+
+      @include desktop {
+        font-size: 18px;
+      }
     }
   }
 
-  &__time {
+  &__details {
     font-size: 18px;
+
+    @include desktop {
+      font-size: 16px;
+    }
   }
 }
 </style>
