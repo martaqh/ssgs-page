@@ -83,8 +83,8 @@ const pastEvents = [
               <br />
             </p>
             <p>
-              Od ponad 20 lat śpiewamy tak, jak nas uczył
-              <br />
+              Od ponad 20 lat śpiewamy tak <br />
+              jak nas uczył
 
               <router-link to="/about"
                 ><span>Robert Pożarski</span></router-link
