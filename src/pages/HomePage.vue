@@ -189,11 +189,15 @@ console.log(submitClicked.value);
 
       h1 {
         margin-top: 5rem;
-
         font-size: 5rem;
         text-transform: uppercase;
-        @include tablet {
+
+        @include desktop {
           font-size: 4rem;
+        }
+
+        @include tablet {
+          font-size: 3rem;
         }
 
         @include mobile {
@@ -204,6 +208,10 @@ console.log(submitClicked.value);
       h2 {
         font-size: 1.5rem;
         text-transform: uppercase;
+
+        @include desktop {
+          font-size: 1.2rem;
+        }
 
         @include tablet {
           font-size: 1.2rem;
@@ -252,6 +260,14 @@ console.log(submitClicked.value);
       &.second {
         grid-column: 8/11;
         grid-row: 2;
+
+        @include desktop {
+          grid-column: 9/11;
+        }
+
+        @include tablet {
+          grid-column: 9/11;
+        }
       }
 
       &.third {
@@ -262,6 +278,14 @@ console.log(submitClicked.value);
       &.fourth {
         grid-column: 9/13;
         grid-row: 3;
+
+        @include desktop {
+          grid-column: 10/13;
+        }
+
+        @include tablet {
+          grid-column: 8/13;
+        }
       }
     }
   }
