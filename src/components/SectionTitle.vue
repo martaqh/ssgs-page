@@ -14,14 +14,5 @@
   font-family: $font-main;
   text-transform: uppercase;
   margin-bottom: 48px;
-
-  @include tablet {
-    font-size: 2.5rem;
-  }
-
-  @include mobile {
-    font-size: 2rem;
-    margin: 32px 0;
-  }
 }
 </style>

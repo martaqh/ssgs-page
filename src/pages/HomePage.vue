@@ -48,6 +48,20 @@ const pastEvents = [
     date: "3 listopada 2023 r.",
     imageUrl: "/assets/Ofiarowanie.jpg",
   },
+  {
+    id: 4,
+    title: "Wieczór pieśni adwentowych",
+    place: "Wrocław Strachocin",
+    date: "14 grudnia 2023 r.",
+    imageUrl: "/assets/Adwentowy.jpg",
+  },
+  {
+    id: 5,
+    title: "Oficjum o świętym Augustynie",
+    place: "Ibramowice",
+    date: "3 listopada 2023 r.",
+    imageUrl: "/assets/Ofiarowanie.jpg",
+  },
 ];
 </script>
 
@@ -94,7 +108,7 @@ const pastEvents = [
         </div>
       </div>
 
-      <section class="home-page__upcoming-events offset">
+      <section class="home-page__events upcoming offset">
         <SectionTitle>Nadchodzące wydarzenia</SectionTitle>
         <CardsDisplay>
           <EventCard
@@ -105,7 +119,7 @@ const pastEvents = [
           </EventCard>
         </CardsDisplay>
       </section>
-      <section class="home-page__past-events offset">
+      <section class="home-page__events past offset">
         <SectionTitle>Zrealizowane wydarzenia</SectionTitle>
 
         <CardsDisplay>
@@ -213,6 +227,10 @@ const pastEvents = [
         margin-top: 34px;
       }
     }
+  }
+
+  &__events {
+    margin-bottom: 64px;
   }
 }
 

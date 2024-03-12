@@ -40,8 +40,7 @@ const props = defineProps<{
 <style scoped lang="scss">
 .event-card {
   width: 100%;
-  aspect-ratio: 1;
-  margin-bottom: 32px;
+  height: 100%;
   overflow: hidden;
   font-size: 18px;
   display: flex;
@@ -58,8 +57,7 @@ const props = defineProps<{
 
   &__image {
     width: 100%;
-    height: 60%;
-    max-height: 236px;
+    height: 236px;
     margin-bottom: 8px;
     overflow: hidden;
 
@@ -81,6 +79,10 @@ const props = defineProps<{
       font-size: 20px;
     }
 
+    @include tablet {
+      font-size: 20px;
+    }
+
     h6 {
       text-transform: none;
       font-size: 20px;
@@ -93,6 +95,7 @@ const props = defineProps<{
 
   &__details {
     font-size: 18px;
+    padding-bottom: 8px;
 
     @include desktop {
       font-size: 16px;

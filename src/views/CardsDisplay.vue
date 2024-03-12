@@ -10,8 +10,10 @@
 .cards-display {
   width: 100%;
   height: 100%;
+  max-width: 1200px;
+  max-height: 340px;
   display: grid;
-  grid-template-columns: repeat(3, 370px);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 32px;
 
   @include desktop {
