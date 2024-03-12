@@ -44,24 +44,22 @@ const buttonType = computed(() => {
   box-shadow: box-shadow;
   color: $color-accent;
   text-align: center;
-  grid-row: 2;
-  grid-column: 1/3;
+
   text-transform: uppercase;
   font-size: 1.2rem;
   letter-spacing: 1.5px;
-  /* From https://css.glass */
+
   background: rgba(60, 60, 60, 0.2);
-  //box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
   backdrop-filter: blur(2px);
   border: 1px solid $color-accent-light;
 
   &:hover {
     cursor: pointer;
     color: $color-accent;
-    text-shadow: 0px 0px 20px $color-accent;
-    box-shadow: 00px 0px 10px $color-accent;
+    border: 1px solid $color-accent;
+    text-shadow: 0px 0px 20px $color-accent-light;
     transition: all 0.2s ease-in;
-    border: 2px solid $color-accent;
   }
 
   @include mobile {
